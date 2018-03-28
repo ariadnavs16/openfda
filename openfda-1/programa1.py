@@ -26,7 +26,7 @@ info_ordenada = json.loads(info_completa)#La variable 'info_ordenada' contiene l
 medicamento=info_ordenada['results'][0]#La iinformacion del medicamento se encuentra dentro de un diccionario cuya clave es result.
                                        #Dentro del cual hay una lista de donde cogemos el primer valor (posicion 0).
 
-print('ID:', medicamento['id']) #Para obtener la iid del medicamento nos metemos en el diccionario de medicamento con la clave 'id'.
+print('ID:', medicamento['id']) #Para obtener la id del medicamento nos metemos en el diccionario de medicamento con la clave 'id'.
                                 #Imprimimos dicha informacion, ya que nos la pide el enunciado.
 
 print('Proposito', medicamento['purpose'][0]) #Para obtener el proposito realizamos el mismo porcedimiento que para el id, pero en este caso la clave del diccionario sera 'purpose'

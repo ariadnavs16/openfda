@@ -9,7 +9,7 @@ import json #El modulo 'json' nos permite navegar por los ficheros json como si 
 headers={'User-Agent': 'http.client'}
 
 
-connection = http.client.HTTPSConnection("api.fda.gov") #Establecemos conexion con el api de openfda.
+connection = http.client.HTTPSConnection("api.fda.gov") #Establecemos conexion con el API de openfda.
 connection.request("GET", "/drug/label.json", None, headers) #Enviamos una peticion tipo "GET",
                                                             #junto con el recurso ('/drug/label.json') que queremos solicitar
 respuesta= connection.getresponse() #Creamos una variable la cual tendra la respuesta de openfada.

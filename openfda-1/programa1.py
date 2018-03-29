@@ -27,7 +27,7 @@ medicamento=info_ordenada['results'][0]#La iinformacion del medicamento se encue
                                        #Dentro del cual hay una lista de donde cogemos el primer valor (posicion 0).
 
 print('Identificador(id):', medicamento['id']) #Para obtener la id del medicamento nos metemos en el diccionario de medicamento con la clave 'id'.
-                                #Imprimimos dicha informacion, ya que nos la pide el enunciado.
+                                              #Imprimimos dicha informacion, ya que nos la pide el enunciado.
 
 print('Proposito del producto', medicamento['purpose'][0]) #Para obtener el proposito realizamos el mismo porcedimiento que para el id, pero en este caso la clave del diccionario sera 'purpose'
 

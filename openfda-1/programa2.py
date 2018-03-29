@@ -17,7 +17,7 @@ print(respuesta.status, respuesta.reason) #Esto no haria falta imprimirlo, pero 
 info_completa = respuesta.read().decode('utf-8') #La variable 'info_completa' contiene la respuesta completa en formato json.
 #Aplicamos el ".decode('utf-8')" por si en la informacion hay algun simbolo este se interprete correctamente.
 
-connection.close() #Cerramos la conexion.
+connection.close() #Cerramos la conexion .
 
 
 info_ordenada = json.loads(info_completa) #La variable 'info_ordenada' contiene la misma informacion pero ordenada.

@@ -6,8 +6,11 @@ headers={'User-Agent': 'http.client'}
 
 
 connection = http.client.HTTPSConnection("api.fda.gov") #Establecemos conexion con el api de openfda.
-connection.request("GET", "/drug/label.json", None, headers) #Enviamos una peticion tipo "GET",
-                                                           #junto con el recurso ('/drug/label.json') que queremos solicitar
+
+#Enviamos una peticion tipo "GET" junto con el recurso ('/drug/label.json?limit=10') que queremos solicitar,
+#introducimos 'limit=10', ya que nos piden 10 objetos de la URL (en el api de fda se encuentra esta informacion).
+connection.request("GET", "/drug/label.json?limit=10", None, headers)
+
 respuesta= connection.getresponse() #Creamos una variable la cual tendra la respuesta de openfada.
 print(respuesta.status, respuesta.reason) #Esto no haria falta imprimirlo, pero nos indica el estado del servidor y que este no esta caido.
 
@@ -16,15 +19,14 @@ info_completa = respuesta.read().decode('utf-8') #La variable 'info_completa' co
 
 connection.close() #Cerramos la conexion.
 
-fichero= open ('label.json', 'w')
-fichero.write(info_completa)
-fichero.close()
-
 
 info_ordenada = json.loads(info_completa) #La variable 'info_ordenada' contiene la misma informacion pero ordenada.
 #Empleamos 'loads' para transformar en listas, diccionarios, etc. la informacion y que sea mas facil trabajar con ella.
 
-for i in range(len(info_ordenada['results'])):
-    medicamento = info_ordenada['results'][i]
+for i in range(len(info_ordenada['results'])): #Aplicamos un bucle 'for' para que recorra toda la lista,
+                                               #ya que en este caso devuelve una lista con 10 objetos
 
-    print('ID:', medicamento['id'])
+    medicamento = info_ordenada['results'][i]#La 'i' en este caso son las posiciones, por ello aplicamos el bucle 'for' sobre el rango.
+                                             #La variable 'medicamento' ira guardando la informacion.
+
+    print('ID:', medicamento['id'])#Finalmente imprimimos por pantalla la 'id' de cada uno de los 10 medicamentos.

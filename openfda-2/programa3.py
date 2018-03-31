@@ -1,13 +1,15 @@
 import http.client
 import json
 
-headers={'User-Agent': 'http-client'}
+headers={'User-Agent': 'http-client'} #Cabecera que indica que nuestro programa es un cliente.
 
-num_skip=0
-while True:
+contador=0 #Inicializamos una variable que usaremos como contador para obtener todos los medicamentos relacionados con las Aspirinas.
+
+while True: #Empleamos un bucle 'while' con valor inicial 'True' para recorrer el api de fda
+
     connection = http.client.HTTPSConnection("api.fda.gov") #Establecemos conexion con el API de openfda.
 
-    connection.request("GET",'/drug/label.json?limit=100&skip=' +str(num_skip)+'&search=substance_name:"ASPIRIN"', None, headers)
+    connection.request("GET",'/drug/label.json?limit=100&skip=' +str(contador)+'&search=substance_name:"ASPIRIN"', None, headers)
 
     respuesta= connection.getresponse() #Creamos una variable la cual tendra la respuesta de openfada.
     print(respuesta.status, respuesta.reason) #Esto no haria falta imprimirlo, pero nos indica el estado del servidor y que este no esta caido.
@@ -26,8 +28,8 @@ while True:
         print('ID:', medicamento['id'])
 
         if(medicamento['openfda']):
-            print('Fabricante:', medicamento['openfda']['manufacturer_name'][0])
+            print('Fabricantes que producen aspirinas:', medicamento['openfda']['manufacturer_name'][0])
 
     if (len(info_ordenada['results'])<100):
         break
-    num_skip+=100
+    contador+=100

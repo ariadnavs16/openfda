@@ -23,7 +23,7 @@ for i in range(len(info_ordenada['results'])): #Aplicamos un bucle 'for' para qu
                                                #ya que en este caso devuelve una lista con 10 objetos
 
     medicamento = info_ordenada['results'][i] #Al aplicar el bucle 'for' sobre el rango la 'i' son posiciones.
-    num+=1                                         #La variable 'medicamento' ira guardando la informacion.
+    num+=1
 
     print('ID medicamento',num,':', medicamento['id'])#Finalmente imprimimos por pantalla la 'id' de cada uno de los 10 medicamentos.
 

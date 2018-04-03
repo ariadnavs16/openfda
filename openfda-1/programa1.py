@@ -28,5 +28,5 @@ print('Identificador(id):', medicamento['id']) #Para obtener la id del medicamen
 
 print('Proposito del producto', medicamento['purpose'][0]) #Para obtener el proposito realizamos el mismo porcedimiento que para el id, pero en este caso la clave del diccionario sera 'purpose'
 
-#Por ultimo, el fabricante se obtiene con la clave 'openfda' en cuyo interior hay otro diccionario en el que empleamos la clave 'manufacturer_name'y por ultimo la posicion 0 de la lista.
+#Por ultimo, el fabricante se obtiene con la clave 'openfda' en cuyo interior hay otro diccionario en el que empleamos la clave 'manufacturer_name'y cogemos la posicion 0 de la lista que hay en su interior.
 print('Nombre del fabricante', medicamento['openfda']['manufacturer_name'][0])

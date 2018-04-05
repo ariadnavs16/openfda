@@ -32,6 +32,8 @@ def lista_medicamentos(): #Creamos una funcion que nos devuelva una lista con la
         if (medicamento['openfda']):
             print('Nombre medicamento:', medicamento['openfda']['generic_name'][0])
             list.append(medicamento['openfda']['generic_name'][0])  #Con '.append' incorporamos la informacion a la lista que creamos inicalmente vacia.
+        else:
+            list.append('El nombre del medicamento no se encuentra disponible')
 
     return list
 

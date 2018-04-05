@@ -30,7 +30,7 @@ def lista_medicamentos(): #Creamos una funcion que nos devuelva una lista con la
         medicamento = info_ordenada['results'][i]
 
         if (medicamento['openfda']):
-            print('Fabricante:', medicamento['openfda']['generic_name'][0])
+            print('Nombre medicamento:', medicamento['openfda']['generic_name'][0])
             list.append(medicamento['openfda']['generic_name'][0])  #Con '.append' incorporamos la informacion a la lista que creamos inicalmente vacia.
 
     return list

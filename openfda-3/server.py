@@ -33,8 +33,8 @@ def lista_medicamentos(): #Creamos una funcion que nos devuelva una lista con la
             print('Nombre medicamento:', medicamento['openfda']['generic_name'][0])
             list.append(medicamento['openfda']['generic_name'][0])  #Con '.append' incorporamos la informacion a la lista que creamos inicalmente vacia.
         else:
-            list.append('El nombre del medicamento no se encuentra disponible')
-
+            list.append('Nombre del medicamento NO DISPONIBLE')
+            print('Nombre del medicamento no disponible')
     return list
 
 
@@ -73,10 +73,9 @@ try:
     httpd.serve_forever() #El servidor esta esperando indefinidamente, hasta que lo paremos manualmente.
 except KeyboardInterrupt:
     pass
-
 httpd.server_close()
 print("")
-print("Server stopped!")
+print("El servidor ha sido interrumpido")
 
 
 

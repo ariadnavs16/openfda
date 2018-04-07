@@ -24,9 +24,9 @@ info_ordenada = json.loads(info_completa)#La variable 'info_ordenada' contiene l
 medicamento=info_ordenada['results'][0]#La informacion del medicamento se encuentra dentro de un diccionario cuya clave es 'results'.
                                        #Dentro del cual hay una lista de donde cogemos el primer valor.
 
-print('Identificador(id):', medicamento['id']) #Para obtener la id del medicamento nos metemos en el diccionario de medicamento con la clave 'id'.
+print('Identificador(ID):', medicamento['id']) #Para obtener la id del medicamento nos metemos en el diccionario de medicamento con la clave 'id'.
 
-print('Proposito del producto', medicamento['purpose'][0]) #Para obtener el proposito realizamos el mismo porcedimiento que para el id, pero en este caso la clave del diccionario sera 'purpose'
+print('Proposito del producto:', medicamento['purpose'][0]) #Para obtener el proposito realizamos el mismo porcedimiento que para el id, pero en este caso la clave del diccionario sera 'purpose'
 
 #Por ultimo, el fabricante se obtiene con la clave 'openfda' en cuyo interior hay otro diccionario en el que empleamos la clave 'manufacturer_name'y cogemos la posicion 0 de la lista que hay en su interior.
-print('Nombre del fabricante', medicamento['openfda']['manufacturer_name'][0])
+print('Nombre del fabricante:', medicamento['openfda']['manufacturer_name'][0])

@@ -8,7 +8,7 @@ connection = http.client.HTTPSConnection("api.fda.gov") #Establecemos conexion c
 contador=0 #Inicializamos una variable que usaremos como contador para obtener todos los medicamentos relacionados con las Aspirinas.
 while True: #Empleamos un bucle 'while' infinito con valor inicial 'True' para recorrer el api de fda.
 
-    connection.request("GET",'/drug/label.json?limit=100&skip=' +str(contador)+'&search=substance_name:"ASPIRIN"', None, headers)
+    connection.request("GET",'/drug/label.json?limit=100&skip=' +str(contador)+'&search=active_ingredient:"acetylsalicylic"', None, headers)
     #Enviamos una peticion tipo 'GET' junto al recurso al que le incorporamos datos adicionales como son 'limit'(nos devolvera el numero que le asignemos de medicamentos9,
     #'skip'(saltara el numero de medicamentos que le asignemos y devolvera los siguientes), 'search'(nos permite realizar una busqueda para que nos devuelva aquellos medicamentos que contengan aspirina).
 
@@ -28,8 +28,9 @@ while True: #Empleamos un bucle 'while' infinito con valor inicial 'True' para r
         print('ID:', medicamento['id']) #Imprimimos por pantalla el 'id' de cada uno de los medicamentos.
 
         if(medicamento['openfda']):
-            print('Fabricantes que producen aspirinas:', medicamento['openfda']['manufacturer_name'][0])
-
+            print('Fabricante:', medicamento['openfda']['manufacturer_name'][0])
+        else:
+            print('El nombre del fabricante no esta disponible')
     if (len(info_ordenada['results'])<100): #Si el programa devuelve menos de 100 medicamentos cerramos el bucle, ya que no habrian mas medicamentos que contuvieran aspirina.
         break
 

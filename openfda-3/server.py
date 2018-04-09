@@ -5,7 +5,7 @@ import http.client
 import json
 
 PORT = 8090 #Es el puerto en el que lanzaremos el servidor.
-
+IP='localhost'
 
 def lista_medicamentos(): #Creamos una funcion que nos devuelva una lista con la informacion de los medicamentos.
 
@@ -67,7 +67,7 @@ class testHTTPRequestHandler(http.server.BaseHTTPRequestHandler): #Es una clase 
 # A continuacion, creamos el servidor.
 Handler = testHTTPRequestHandler
 
-httpd = socketserver.TCPServer(("", PORT), Handler)
+httpd = socketserver.TCPServer((IP, PORT), Handler)
 print("serving at port", PORT) #Indica en que puerto estas atendiendo.
 try:
     httpd.serve_forever() #El servidor esta esperando indefinidamente, hasta que lo paremos manualmente.

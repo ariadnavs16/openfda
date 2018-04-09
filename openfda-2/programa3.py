@@ -17,7 +17,6 @@ while True: #Empleamos un bucle 'while' infinito con valor inicial 'True' para r
     info_completa = respuesta.read().decode('utf-8') #La variable 'info_completa' contiene la informacion de 'respuesta' en formato json.
     #Aplicamos el ".decode('utf-8')" por si en la informacion hay algun simbolo este se interprete correctamente.
 
-    #connection.close()
 
     info_ordenada = json.loads(info_completa)
     #Empleamos 'loads' para transformar en listas y diccionarios la informacion y que sea mas facil trabajar con ella.
